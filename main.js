@@ -48,9 +48,24 @@ document.addEventListener('scroll', () =>{
 
 
 
+//Scroll 될 때 Arrow Up 버튼 나타나게
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', ()=>{
+    if(window.scrollY > homeHeight /2){
+    arrowUp.classList.add('visible');
+    }
+
+    else{
+        arrowUp.classList.remove('visible');
+    }
+});
 
 
+//Arrow btn 누를때 맨위로 올라가게
+arrowUp.addEventListener('click', () =>{
 
+    scrollIntoView('#home');
+});
 
 
 
