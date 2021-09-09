@@ -18,13 +18,25 @@ document.addEventListener('scroll',() =>{
 //Navbar btn 눌렀을때 원하는 Section으로 Scrolling
 
 const navbarMenu =document.querySelector('.navbar__menu');
-navbarMenu.addEventListener('click', (event) =>{
+navbarMenu.addEventListener('click', (event)  =>{
  const target = event.target;
  const link = target.dataset.link;
  if (link == null){
      return;
  }
 
-  const scroollTo = document.querySelector(link);
-  scroollTo.scrollIntoView({behavior: 'smooth'});
+ scrollIntoView(link);
 });
+
+
+//  Contact Me 버튼  프로그래밍
+const homeContactBtn = document.querySelector('.home__contact');
+homeContactBtn.addEventListener('click', () => {
+    scrollIntoView('#contact');
+});
+
+
+function scrollIntoView(selector){
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({behavior: 'smooth'});
+}
