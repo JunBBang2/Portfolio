@@ -15,6 +15,9 @@ document.addEventListener('scroll',() =>{
 }); 
 
 
+
+
+
 //Navbar btn 눌렀을때 원하는 Section으로 Scrolling
 
 const navbarMenu =document.querySelector('.navbar__menu');
@@ -27,6 +30,13 @@ navbarMenu.addEventListener('click', (event)  =>{
 
  scrollIntoView(link);
 });
+
+//Navbar Toggle btn for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () =>{
+    navbarMenu.classList.toggle('open');
+});
+
 
 
 //  Contact Me 버튼  프로그래밍
