@@ -83,16 +83,24 @@ workBtnContainer.addEventListener('click', (e)=>{
     }
 projectContainer.classList.add('anim-out');
 
-    projects.forEach((project)=>{
-        if(filter === '*' || filter === project.dataset.type){
-            project.classList.remove('invisible');
-    }
-                else{
-                    project.classList.add('invisible');
-    }
-    });
+    //이전 선택된 박스에서 선택된 액티브 없애고 다른애로 옮겨가기
 
-    setTimeout(()=>{projectContainer.classList.remove('anim-out');},300);
+    const active = document.querySelector('.categories__btn.selected');
+    active.classList.remove('selected');
+    const target = 
+    e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+    target.classList.add('selected');
+
+    setTimeout(()=>{
+        projects.forEach((project)=>{
+            if(filter === '*' || filter === project.dataset.type){
+                project.classList.remove('invisible');
+        }
+                    else{
+                        project.classList.add('invisible');
+        }
+        });
+        projectContainer.classList.remove('anim-out');},300);
 });
 
 
